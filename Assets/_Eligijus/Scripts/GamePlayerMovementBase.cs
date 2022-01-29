@@ -33,7 +33,7 @@ public class GamePlayerMovementBase : MonoBehaviour
         startRotate = true;
         if (angleToRotate.z == 0)
         {
-            angleToRotate.z = 1;
+            angleToRotate.z = 5;
         }
         else
         {
