@@ -7,7 +7,7 @@ public class GamePlayerMovementBase : MonoBehaviour
 {
     
     [SerializeField] protected Transform hoverPosition;
-    [SerializeField] protected float hoverRadius = 1f;
+    [SerializeField] protected Vector3 cubeSize = Vector3.one;
     [SerializeField] protected LayerMask hoverLayerMask = -1;
     protected Collider[] overlappingColliders;
     public float movementIntensity;
@@ -26,6 +26,7 @@ public class GamePlayerMovementBase : MonoBehaviour
         playerHeight = gameObject.GetComponent<BoxCollider>().size.y;
         overlappingColliders = new Collider[32];
         rb = gameObject.GetComponent<Rigidbody>();
+        // rb.centerOfMass = Vector3.zero;
         angleToRotate = transform.rotation;
     }
 
@@ -93,10 +94,9 @@ public class GamePlayerMovementBase : MonoBehaviour
     {
         return new Quaternion(input.x * scalar, input.y * scalar, input.z * scalar, input.w * scalar);
     }
-    
     private void OnDrawGizmos() {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(hoverPosition.position, hoverRadius);
+        Gizmos.DrawCube(hoverPosition.transform.position, cubeSize*2);
     }
     
 }

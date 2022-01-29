@@ -75,7 +75,8 @@ public class GamePlayerMovement : GamePlayerMovementBase
         
         Array.Clear(overlappingColliders, 0, overlappingColliders.Length);
 
-        int numColliding = Physics.OverlapSphereNonAlloc(hoverPosition.position, hoverRadius, overlappingColliders, hoverLayerMask.value, QueryTriggerInteraction.Ignore);
+        int numColliding = Physics.OverlapBoxNonAlloc(hoverPosition.transform.position, cubeSize, overlappingColliders,
+            gameObject.transform.rotation, hoverLayerMask, QueryTriggerInteraction.Ignore);
 
         if (numColliding > 0)
         {

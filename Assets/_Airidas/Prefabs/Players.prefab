@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206174736950381478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.456, z: 0}
+  m_LocalPosition: {x: 0, y: -0.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -137,8 +137,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2635080213282495281}
-  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: 0, y: -0.481, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverPosition: {fileID: 2774366222315845583}
-  hoverRadius: 0.1
+  cubeSize: {x: 0.155, y: 0.015, z: 0.155}
   hoverLayerMask:
     serializedVersion: 2
     m_Bits: 139703
@@ -522,7 +522,7 @@ MonoBehaviour:
   maximumSpeed: 5
   jumpingOppositeForce: 0.9
   jump: {x: 0, y: 1, z: 0}
-  jumpForce: 100
+  jumpForce: 200
 --- !u!1 &7493291046477110429
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverPosition: {fileID: 127274744102150220}
-  hoverRadius: 0.1
+  cubeSize: {x: 0.155, y: 0.015, z: 0.155}
   hoverLayerMask:
     serializedVersion: 2
     m_Bits: 135543
@@ -626,4 +626,4 @@ MonoBehaviour:
   maximumSpeed: 5
   jumpingOppositeForce: 0.9
   jump: {x: 0, y: -1, z: 0}
-  jumpForce: 100
+  jumpForce: 200
