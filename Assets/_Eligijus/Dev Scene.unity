@@ -1394,11 +1394,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reverse Platform
       objectReference: {fileID: 0}
-    - target: {fileID: 2814439555037991238, guid: 3995b2ba3dec5ac4191eff7d350982ee,
-        type: 3}
-      propertyPath: downPlatform
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2814439555037991239, guid: 3995b2ba3dec5ac4191eff7d350982ee,
         type: 3}
       propertyPath: m_RootOrder

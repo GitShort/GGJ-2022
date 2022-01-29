@@ -123,6 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8447161450598387115}
   - component: {fileID: 28468640338629813}
+  - component: {fileID: 4879316950923758822}
   m_Layer: 0
   m_Name: ExitGate_Bot
   m_TagString: Untagged
@@ -159,6 +160,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0.01, y: 0, z: 0}
+--- !u!114 &4879316950923758822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8447161450598387112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eead34f121b35404981c3ba1e0623f77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playersEnum: 1
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &8447161450932170485
 GameObject:
   m_ObjectHideFlags: 0
