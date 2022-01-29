@@ -33,11 +33,13 @@ public class GamePlayerMovementBase : MonoBehaviour
         startRotate = true;
         if (angleToRotate.z == 0)
         {
-            angleToRotate.z = 5;
+            angleToRotate.z = 1;
+            angleToRotate.w = 0;
         }
         else
         {
             angleToRotate.z = 0;
+            angleToRotate.w = 1;
         }
     }
 
@@ -48,7 +50,7 @@ public class GamePlayerMovementBase : MonoBehaviour
 
             if (Vector3.Distance(transform.eulerAngles, angleToRotate.eulerAngles) > 0.01f)
             {
-                transform.rotation = Quaternion.Lerp(transform.rotation, angleToRotate, 3.0f * Time.deltaTime);
+                transform.rotation = Lerp(transform.rotation, angleToRotate, 3.0f * Time.deltaTime, false);
 
             }
             else
@@ -57,5 +59,27 @@ public class GamePlayerMovementBase : MonoBehaviour
                 startRotate = false;
             }
         }
+    }
+    
+    public static Quaternion Lerp(Quaternion p, Quaternion q, float t, bool shortWay)
+    {
+        if (shortWay)
+        {
+            float dot = Quaternion.Dot(p, q);
+            if (dot < 0.0f)
+                return Lerp(ScalarMultiply(p, -1.0f), q, t, true);
+        }
+ 
+        Quaternion r = Quaternion.identity;
+        r.x = p.x * (1f - t) + q.x * (t);
+        r.y = p.y * (1f - t) + q.y * (t);
+        r.z = p.z * (1f - t) + q.z * (t);
+        r.w = p.w * (1f - t) + q.w * (t);
+        return r;
+    }
+    
+    public static Quaternion ScalarMultiply(Quaternion input, float scalar)
+    {
+        return new Quaternion(input.x * scalar, input.y * scalar, input.z * scalar, input.w * scalar);
     }
 }

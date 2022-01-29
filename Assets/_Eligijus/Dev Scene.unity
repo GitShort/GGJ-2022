@@ -123,6 +123,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &81581625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 81581626}
+  - component: {fileID: 81581627}
+  m_Layer: 9
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &81581626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81581625}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2103409472}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &81581627
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81581625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &253501368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7493291046386512667, guid: 4dfd77d40adb4524085073129ac6fb34,
+    type: 3}
+  m_PrefabInstance: {fileID: 7493291045743400815}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &253501376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253501368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b29488dd4fd40045b6a09722315e02a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementIntensity: 10
+  maximumSpeed: 5
+  jumpingOppositeForce: 0.9
+  jump: {x: 0, y: 1, z: 0}
+  jumpForce: 200
 --- !u!1 &371042376
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +713,7 @@ GameObject:
   - component: {fileID: 2008055213}
   - component: {fileID: 2008055217}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Two ways teleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -742,6 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forcePositionVector: {x: 0.01, y: 0, z: 0}
+  _collider: {fileID: 0}
 --- !u!1 &2064868590
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +1020,119 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!1 &2103409467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2103409472}
+  - component: {fileID: 2103409471}
+  - component: {fileID: 2103409470}
+  - component: {fileID: 2103409469}
+  - component: {fileID: 2103409468}
+  m_Layer: 0
+  m_Name: One way teleport
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2103409468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103409467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f4214dfa170ed40b2bb24860a8e8e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forcePositionVector: {x: 0.01, y: 0, z: 0}
+  _collider: {fileID: 81581627}
+--- !u!65 &2103409469
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103409467}
+  m_Material: {fileID: 13400000, guid: 3f42391b3438dad418a2acbcd41b3160, type: 2}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.98526436, z: 1}
+  m_Center: {x: 0, y: 0.0073678195, z: 0}
+--- !u!23 &2103409470
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103409467}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 5a3cf9743b7b12c458d27e0fd5fd2307, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2103409471
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103409467}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2103409472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103409467}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.599, y: 0, z: -4.28}
+  m_LocalScale: {x: 1.5, y: 1, z: 4.16}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 81581626}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2138918029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,5 +1297,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: Players
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7493291046042864081, guid: 4dfd77d40adb4524085073129ac6fb34,
+        type: 3}
+      propertyPath: onUpInput.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 253501376}
+    - target: {fileID: 7493291046042864081, guid: 4dfd77d40adb4524085073129ac6fb34,
+        type: 3}
+      propertyPath: onDownInput.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 253501376}
+    - target: {fileID: 7493291046042864081, guid: 4dfd77d40adb4524085073129ac6fb34,
+        type: 3}
+      propertyPath: onMoveInput.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 253501376}
+    - target: {fileID: 7493291046042864081, guid: 4dfd77d40adb4524085073129ac6fb34,
+        type: 3}
+      propertyPath: onUpInput.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493291046042864081, guid: 4dfd77d40adb4524085073129ac6fb34,
+        type: 3}
+      propertyPath: onDownInput.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493291046042864081, guid: 4dfd77d40adb4524085073129ac6fb34,
+        type: 3}
+      propertyPath: onMoveInput.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493291046042864081, guid: 4dfd77d40adb4524085073129ac6fb34,
+        type: 3}
+      propertyPath: onUpInput.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GamePlayerMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493291046042864081, guid: 4dfd77d40adb4524085073129ac6fb34,
+        type: 3}
+      propertyPath: onDownInput.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GamePlayerMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493291046042864081, guid: 4dfd77d40adb4524085073129ac6fb34,
+        type: 3}
+      propertyPath: onMoveInput.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GamePlayerMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7493291046386512660, guid: 4dfd77d40adb4524085073129ac6fb34, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4dfd77d40adb4524085073129ac6fb34, type: 3}

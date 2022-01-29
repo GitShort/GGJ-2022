@@ -26,6 +26,16 @@ public class GamePlayerMovement : GamePlayerMovementBase
         
     }
 
+    void OnCollisionStay(){
+        isGrounded = true;
+    }
+
+
+    private void OnCollisionExit(Collision other)
+    {
+        isGrounded = false;
+    }
+    
     public void OnMove(Vector2 value)
     {
         
