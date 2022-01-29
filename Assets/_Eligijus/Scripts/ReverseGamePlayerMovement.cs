@@ -74,7 +74,7 @@ public class ReverseGamePlayerMovement : GamePlayerMovementBase
         
         Array.Clear(overlappingColliders, 0, overlappingColliders.Length);
 
-        int numColliding = Physics.OverlapSphereNonAlloc(hoverPosition.position, hoverRadius, overlappingColliders, hoverLayerMask.value);
+        int numColliding = Physics.OverlapSphereNonAlloc(hoverPosition.position, hoverRadius, overlappingColliders, hoverLayerMask.value, QueryTriggerInteraction.Ignore);
 
         if (numColliding > 0)
         {
