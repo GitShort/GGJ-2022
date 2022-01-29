@@ -3,17 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class GamePlayerMovement : MonoBehaviour
+public class GamePlayerMovement : GamePlayerMovementBase
 {
-    [SerializeField] private float movementIntensity;
-    [SerializeField] float maximumSpeed = 10f;
-    [SerializeField] private float jumpingOppositeForce = 0.6f;
-    private Rigidbody rb;
+    
+    
     private float horizontalValue;
-    
-    
-    public Vector3 jump;
-    public float jumpForce = 2.0f;
     private bool isGrounded;
     private bool button = false;
     private bool higher = false;
@@ -21,9 +15,9 @@ public class GamePlayerMovement : MonoBehaviour
     private float timer = 0f;
     
     // Start is called before the first frame update
-    private void Start()
+    protected override void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
+        base.Start();
     }
 
     // Update is called once per frame
@@ -75,8 +69,9 @@ public class GamePlayerMovement : MonoBehaviour
         // movementY = movementVector.y;
     }
 
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (isGrounded && button)
         {
             rb.AddForce(jump * jumpForce * Time.fixedDeltaTime, ForceMode.Impulse);

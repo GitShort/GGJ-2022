@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gravity : MonoBehaviour
 {
-    [SerializeField] private Vector3 gravityForce;
+    public Vector3 gravityForce;
     [SerializeField] private Vector3 inertiaTensor = Vector3.one;
     [SerializeField] private bool syncTwoRbs;
     [SerializeField] private Rigidbody rbToSync;

@@ -2,25 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class ReverseGamePlayerMovement : MonoBehaviour
+public class ReverseGamePlayerMovement : GamePlayerMovementBase
 {
-    [SerializeField] private float movementIntensity;
-    [SerializeField] float maximumSpeed = 10f;
-    [SerializeField] private float jumpingOppositeForce = 0.6f;
-    private Rigidbody rb;
-    private float horizontalValue;
     
-    public Vector3 jump;
-    public float jumpForce = 2.0f;
+    private float horizontalValue;
     private bool isGrounded;
     private bool button = false;
     private bool higher = false;
     private bool buttonRealised = false;
     private float timer = 0f;
 
-    void Start(){
-        rb = GetComponent<Rigidbody>();
-
+    protected override void Start(){
+        base.Start();
     }
 
     void OnCollisionStay(){
@@ -83,8 +76,11 @@ public class ReverseGamePlayerMovement : MonoBehaviour
         // movementY = movementVector.y;
     }
 
-    private void FixedUpdate()
+    
+
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (isGrounded && button)
         {
             rb.AddForce(jump * jumpForce * Time.fixedDeltaTime, ForceMode.Impulse);
