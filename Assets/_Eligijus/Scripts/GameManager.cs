@@ -8,6 +8,12 @@ public class GameManager : MonoBehaviour
 
     private bool firstCheck = false;
     private bool secondCheck = false;
+    
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +40,13 @@ public class GameManager : MonoBehaviour
         }
 
     }
+    
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        firstCheck = false;
+        secondCheck = false;
+    }
+
 
     public void NextLevel()
     {
