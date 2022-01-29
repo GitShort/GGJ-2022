@@ -5,13 +5,34 @@ using UnityEngine;
 public class ReverseGamePlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementIntensity;
+    [SerializeField] float maximumSpeed = 10f;
+    [SerializeField] private float jumpingOppositeForce = 0.6f;
     private Rigidbody rb;
     private float horizontalValue;
-    // Start is called before the first frame update
-    private void Start()
-    {
-        rb = gameObject.GetComponent<Rigidbody>();
+    
+    public Vector3 jump;
+    public float jumpForce = 2.0f;
+    private bool isGrounded;
+    private bool button = false;
+    private bool higher = false;
+    private bool buttonRealised = false;
+    private float timer = 0f;
+
+    void Start(){
+        rb = GetComponent<Rigidbody>();
+
     }
+
+    void OnCollisionStay(){
+        isGrounded = true;
+    }
+
+
+    private void OnCollisionExit(Collision other)
+    {
+        isGrounded = false;
+    }
+
 
     // Update is called once per frame
     private void Update()
@@ -34,14 +55,16 @@ public class ReverseGamePlayerMovement : MonoBehaviour
 
         if (value > 0.9f)
         {
+            button = true;
             
         }
         else
         {
-            
+            button = false;
+            buttonRealised = true;
         }
 
-        Debug.Log("Je");
+
     }
 
     public void OnDown(float value)
@@ -62,6 +85,37 @@ public class ReverseGamePlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isGrounded && button)
+        {
+            rb.AddForce(jump * jumpForce * Time.fixedDeltaTime, ForceMode.Impulse);
+            higher = true;
+            buttonRealised = false;
+            timer = 0f;
+        }
+
+        if (button && !isGrounded && !buttonRealised)
+        {
+            timer += Time.fixedDeltaTime;
+        }
+
+        if (button && higher && timer > 0.1)
+        {
+            rb.AddForce(jump * jumpForce * 0.35f * Time.fixedDeltaTime, ForceMode.Impulse);
+            higher = false;
+        }
+
         rb.AddForce(Vector3.right * movementIntensity * horizontalValue);
+        if (!isGrounded)
+        {
+            rb.AddForce(Vector3.left * movementIntensity * jumpingOppositeForce * horizontalValue);
+        }
+
+        if (isGrounded)
+        {
+            if (rb.velocity.magnitude > maximumSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * maximumSpeed;
+            }
+        }
     }
 }
