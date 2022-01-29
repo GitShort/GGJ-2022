@@ -1166,11 +1166,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: One way teleport
       objectReference: {fileID: 0}
-    - target: {fileID: 8442687181355857666, guid: 280ae09a94bfd7e40b4f392291518c61,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8442687181355857785, guid: 280ae09a94bfd7e40b4f392291518c61,
         type: 3}
       propertyPath: m_RootOrder

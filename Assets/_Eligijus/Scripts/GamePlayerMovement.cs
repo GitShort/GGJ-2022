@@ -24,18 +24,7 @@ public class GamePlayerMovement : GamePlayerMovementBase
     {
         
     }
-
-    void OnCollisionStay(){
-        isGrounded = true;
-    }
     
-    
-
-
-    private void OnCollisionExit(Collision other)
-    {
-        isGrounded = false;
-    }
     
     public void OnMove(Vector2 value)
     {
@@ -59,6 +48,7 @@ public class GamePlayerMovement : GamePlayerMovementBase
         {
             button = false;
             buttonRealised = true;
+            higher = false;
         }
 
 
@@ -89,9 +79,13 @@ public class GamePlayerMovement : GamePlayerMovementBase
 
         if (numColliding > 0)
         {
-            
+            isGrounded = true;
         }
-
+        else
+        {
+            isGrounded = false;
+        }
+        
         base.FixedUpdate();
         if (isGrounded && button)
         {
@@ -113,6 +107,7 @@ public class GamePlayerMovement : GamePlayerMovementBase
         }
 
         rb.AddForce(Vector3.right * movementIntensity * horizontalValue);
+        
         if (!isGrounded)
         {
             rb.AddForce(Vector3.left * movementIntensity * jumpingOppositeForce * horizontalValue);

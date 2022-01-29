@@ -45,6 +45,7 @@ public class ReverseGamePlayerMovement : GamePlayerMovementBase
         {
             button = false;
             buttonRealised = true;
+            higher = false;
         }
 
 
