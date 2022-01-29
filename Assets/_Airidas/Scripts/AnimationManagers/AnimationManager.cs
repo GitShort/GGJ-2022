@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gate : MonoBehaviour
+public class AnimationManager : MonoBehaviour
 {
     Animator anim;
 
@@ -11,8 +11,8 @@ public class Gate : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void GateOpen()
+    public void StartAnimation(string animName)
     {
-        anim.SetBool("gateOpen", true);
+        anim.SetBool(animName, true);
     }
 }

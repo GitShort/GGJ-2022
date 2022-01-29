@@ -167,7 +167,19 @@ MonoBehaviour:
   _animator: {fileID: 322559204522133096}
   buttonPressEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AnimationManager, Assembly-CSharp
+        m_MethodName: StartAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: gateOpen
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8241226891384547166
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +241,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 531a194b8dfb32b49b01cae9db62495b, type: 2}
+  - {fileID: 2100000, guid: e305255054d7aab4c9fd33d07c6dc703, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

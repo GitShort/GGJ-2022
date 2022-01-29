@@ -2105,19 +2105,13 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1057113276}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &899775649 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2075918982079402276, guid: 85f7440aeeac9724db761dab86be2df8,
+--- !u!114 &899775652 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 899775652, guid: 85f7440aeeac9724db761dab86be2df8,
     type: 3}
   m_PrefabInstance: {fileID: 2075918982811233669}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &899775652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899775649}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4846cb48cc54455409c95933ef190c27, type: 3}
@@ -3531,49 +3525,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 322559204522133079, guid: 786777416b84fc949abfddef7af66c0f,
         type: 3}
-      propertyPath: buttonPressEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 322559204522133079, guid: 786777416b84fc949abfddef7af66c0f,
-        type: 3}
-      propertyPath: buttonPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 322559204522133079, guid: 786777416b84fc949abfddef7af66c0f,
-        type: 3}
       propertyPath: buttonPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 899775652}
-    - target: {fileID: 322559204522133079, guid: 786777416b84fc949abfddef7af66c0f,
-        type: 3}
-      propertyPath: buttonPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 322559204522133079, guid: 786777416b84fc949abfddef7af66c0f,
-        type: 3}
-      propertyPath: buttonPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GateOpen
-      objectReference: {fileID: 0}
-    - target: {fileID: 322559204522133079, guid: 786777416b84fc949abfddef7af66c0f,
-        type: 3}
-      propertyPath: buttonPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Gate, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 322559204522133079, guid: 786777416b84fc949abfddef7af66c0f,
-        type: 3}
-      propertyPath: buttonPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 628423890080512828, guid: 786777416b84fc949abfddef7af66c0f,
         type: 3}
       propertyPath: m_Name
       value: Button First Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7374669277344952023, guid: 786777416b84fc949abfddef7af66c0f,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e305255054d7aab4c9fd33d07c6dc703, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 786777416b84fc949abfddef7af66c0f, type: 3}
 --- !u!1001 &1473338906
@@ -5768,11 +5727,6 @@ PrefabInstance:
     - target: {fileID: 2075918982079402279, guid: 85f7440aeeac9724db761dab86be2df8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7779026336064669840, guid: 85f7440aeeac9724db761dab86be2df8,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
