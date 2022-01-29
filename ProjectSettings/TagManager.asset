@@ -21,7 +21,7 @@ TagManager:
   - PlayerTwoTeleportCollider
   - PlayerOneCollision
   - PlayerTwoCollision
-  - 
+  - TwoPlayersIgnore
   - 
   - 
   - 

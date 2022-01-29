@@ -19,6 +19,11 @@ public class Teleportation : MonoBehaviour
             previosLayer = other.gameObject.layer;
             other.gameObject.layer = 8;
         }
+        else
+        {
+            previosLayer = other.gameObject.layer;
+            other.gameObject.layer = 16;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -30,6 +35,10 @@ public class Teleportation : MonoBehaviour
             baseScript.JumpOnImpulse(forcePositionVector);
             baseScript.ApplyRotation();
             if (_collider != null && oneWayteleport)
+            {
+                other.gameObject.layer = previosLayer;
+            }
+            else
             {
                 other.gameObject.layer = previosLayer;
             }
