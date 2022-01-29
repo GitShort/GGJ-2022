@@ -15,10 +15,10 @@ TagManager:
   - Player2
   - PlayerPassThru
   - TeleportCollider
-  - 
-  - 
-  - 
-  - 
+  - PlayerOneTeleport
+  - PlayerTwoTeleport
+  - PlayerOneTeleportCollider
+  - PlayerTwoTeleportCollider
   - 
   - 
   - 
