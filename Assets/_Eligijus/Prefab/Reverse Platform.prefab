@@ -115,4 +115,4 @@ MonoBehaviour:
   hoverLayerMask:
     serializedVersion: 2
     m_Bits: 118208
-  downPlatform: 0
+  downPlatform: 1

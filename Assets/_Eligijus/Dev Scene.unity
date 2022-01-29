@@ -1023,6 +1023,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 2286426049379971371, guid: 55edfa04b40ea1841822a497bf045a80,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 68f1d7950e630f646bd334beb41392d1,
+        type: 2}
     - target: {fileID: 2286426049379971374, guid: 55edfa04b40ea1841822a497bf045a80,
         type: 3}
       propertyPath: m_RootOrder
@@ -1235,6 +1241,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1066653884205832259, guid: 4dfd77d40adb4524085073129ac6fb34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1642920775685110297, guid: 4dfd77d40adb4524085073129ac6fb34,
         type: 3}
       propertyPath: m_RootOrder
