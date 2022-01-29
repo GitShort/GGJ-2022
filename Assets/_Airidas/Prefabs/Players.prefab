@@ -517,7 +517,7 @@ MonoBehaviour:
   hoverRadius: 0.1
   hoverLayerMask:
     serializedVersion: 2
-    m_Bits: 8631
+    m_Bits: 139703
   movementIntensity: 10
   maximumSpeed: 5
   jumpingOppositeForce: 0.9
@@ -621,7 +621,7 @@ MonoBehaviour:
   hoverRadius: 0.1
   hoverLayerMask:
     serializedVersion: 2
-    m_Bits: 4471
+    m_Bits: 135543
   movementIntensity: 10
   maximumSpeed: 5
   jumpingOppositeForce: 0.9

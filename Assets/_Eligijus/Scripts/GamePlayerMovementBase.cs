@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GamePlayerMovementBase : MonoBehaviour
 {
+    
     [SerializeField] protected Transform hoverPosition;
     [SerializeField] protected float hoverRadius = 1f;
     [SerializeField] protected LayerMask hoverLayerMask = -1;
@@ -15,18 +16,24 @@ public class GamePlayerMovementBase : MonoBehaviour
     public Vector3 jump;
     public float jumpForce = 2.0f;
     protected Rigidbody rb;
+    private float playerHeight;
     
     private Quaternion angleToRotate;
     private bool startRotate = false;
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        playerHeight = gameObject.GetComponent<BoxCollider>().size.y;
         overlappingColliders = new Collider[32];
         rb = gameObject.GetComponent<Rigidbody>();
         angleToRotate = transform.rotation;
     }
-    
-    
+
+    public float GetPlayerHeight()
+    {
+        return playerHeight;
+    }
+
     public void JumpOnImpulse(Vector3 jumpVector)
     {
         rb.AddForce(jumpVector * jumpForce, ForceMode.Impulse);
