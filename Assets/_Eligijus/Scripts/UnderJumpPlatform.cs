@@ -8,6 +8,7 @@ public class UnderJumpPlatform : MonoBehaviour
     [SerializeField] Vector3 cubeSize = Vector3.one;
     [SerializeField] Vector3 cubeLocalPosition = Vector3.one;
     [SerializeField] protected LayerMask hoverLayerMask = -1;
+    [SerializeField] private bool downPlatform = false;
     private Collider[] overlappingColliders;
     private Collider _collider;
     private float timeCheck = 0;
@@ -44,13 +45,31 @@ public class UnderJumpPlatform : MonoBehaviour
 
         if (numColliding > 0)
         {
-            GameObject player = overlappingColliders[0].gameObject;
-            GamePlayerMovementBase movementBase = player.GetComponent<GamePlayerMovementBase>();
-            if (player.transform.position.y - movementBase.GetPlayerHeight()*0.4f > gameObject.transform.position.y)
+            
+            
+            if (overlappingColliders[0].gameObject != null && overlappingColliders[0].gameObject.TryGetComponent(out GamePlayerMovementBase movementBase))
             {
-                triggerExit = true;
-                _collider.isTrigger = false;
-                timeCheck = 0f;
+                GameObject player = overlappingColliders[0].gameObject;
+                if (!downPlatform)
+                {
+                    if (player.transform.position.y - movementBase.GetPlayerHeight() * 0.4f >
+                        gameObject.transform.position.y)
+                    {
+                        triggerExit = true;
+                        _collider.isTrigger = false;
+                        timeCheck = 0f;
+                    }
+                }
+                else
+                {
+                    if (player.transform.position.y + movementBase.GetPlayerHeight() * 0.4f <
+                        gameObject.transform.position.y)
+                    {
+                        triggerExit = true;
+                        _collider.isTrigger = false;
+                        timeCheck = 0f;
+                    }
+                }
             }
         }
 
