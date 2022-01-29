@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverPosition: {fileID: 2774366222315845583}
-  cubeSize: {x: 0.155, y: 0.015, z: 0.155}
+  cubeSize: {x: 0.153, y: 0.015, z: 0.153}
   hoverLayerMask:
     serializedVersion: 2
     m_Bits: 139703
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverPosition: {fileID: 127274744102150220}
-  cubeSize: {x: 0.155, y: 0.015, z: 0.155}
+  cubeSize: {x: 0.153, y: 0.015, z: 0.153}
   hoverLayerMask:
     serializedVersion: 2
     m_Bits: 135543
