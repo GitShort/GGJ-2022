@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class GamePlayerMovementBase : MonoBehaviour
 {
-    
+    [SerializeField] protected Transform hoverPosition;
+    [SerializeField] protected float hoverRadius = 1f;
+    [SerializeField] protected LayerMask hoverLayerMask = -1;
+    protected Collider[] overlappingColliders;
     public float movementIntensity;
     public float maximumSpeed = 10f;
     public float jumpingOppositeForce = 0.6f;
@@ -18,6 +21,7 @@ public class GamePlayerMovementBase : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        overlappingColliders = new Collider[32];
         rb = gameObject.GetComponent<Rigidbody>();
         angleToRotate = transform.rotation;
     }
@@ -82,4 +86,10 @@ public class GamePlayerMovementBase : MonoBehaviour
     {
         return new Quaternion(input.x * scalar, input.y * scalar, input.z * scalar, input.w * scalar);
     }
+    
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(hoverPosition.position, hoverRadius);
+    }
+    
 }

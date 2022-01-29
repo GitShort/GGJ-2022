@@ -16,16 +16,6 @@ public class ReverseGamePlayerMovement : GamePlayerMovementBase
         base.Start();
     }
 
-    void OnCollisionStay(){
-        isGrounded = true;
-    }
-
-
-    private void OnCollisionExit(Collision other)
-    {
-        isGrounded = false;
-    }
-
 
     // Update is called once per frame
     private void Update()
@@ -80,6 +70,20 @@ public class ReverseGamePlayerMovement : GamePlayerMovementBase
 
     protected override void FixedUpdate()
     {
+        
+        Array.Clear(overlappingColliders, 0, overlappingColliders.Length);
+
+        int numColliding = Physics.OverlapSphereNonAlloc(hoverPosition.position, hoverRadius, overlappingColliders, hoverLayerMask.value);
+
+        if (numColliding > 0)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+        
         base.FixedUpdate();
         if (isGrounded && button)
         {
@@ -94,7 +98,7 @@ public class ReverseGamePlayerMovement : GamePlayerMovementBase
             timer += Time.fixedDeltaTime;
         }
 
-        if (button && higher && timer > 0.1)
+        if (button && higher && timer > 0.15)
         {
             rb.AddForce(jump * jumpForce * 0.35f * Time.fixedDeltaTime, ForceMode.Impulse);
             higher = false;
@@ -114,4 +118,6 @@ public class ReverseGamePlayerMovement : GamePlayerMovementBase
             }
         }
     }
+    
+    
 }

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &206174736950381478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2774366222315845583}
+  m_Layer: 6
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2774366222315845583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206174736950381478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.456, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7493291046386512661}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1066653884205832259
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,6 +114,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2635080213282495281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 127274744102150220}
+  m_Layer: 6
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &127274744102150220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2635080213282495281}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
+  m_LocalPosition: {x: 0, y: -0.481, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7493291046477110423}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4202218529774944913
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,8 +341,8 @@ MonoBehaviour:
   onMoveInput:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7493291046386512660}
-        m_TargetAssemblyTypeName: ReverseGamePlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 253501376}
+        m_TargetAssemblyTypeName: GamePlayerMovement, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -306,8 +368,8 @@ MonoBehaviour:
   onUpInput:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7493291046386512660}
-        m_TargetAssemblyTypeName: ReverseGamePlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 253501376}
+        m_TargetAssemblyTypeName: GamePlayerMovement, Assembly-CSharp
         m_MethodName: OnUp
         m_Mode: 0
         m_Arguments:
@@ -333,8 +395,8 @@ MonoBehaviour:
   onDownInput:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7493291046386512660}
-        m_TargetAssemblyTypeName: ReverseGamePlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 253501376}
+        m_TargetAssemblyTypeName: GamePlayerMovement, Assembly-CSharp
         m_MethodName: OnDown
         m_Mode: 0
         m_Arguments:
@@ -369,7 +431,7 @@ GameObject:
   - component: {fileID: 7493291046386512664}
   - component: {fileID: 7493291046386512665}
   - component: {fileID: 7493291046386512666}
-  - component: {fileID: 7493291046386512660}
+  - component: {fileID: 253501376}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -385,11 +447,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7493291046386512667}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.379, y: 0.3, z: -4.708}
+  m_LocalPosition: {x: -6.379, y: 1.24, z: -4.708}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6482303154589465700}
+  - {fileID: 2774366222315845583}
   m_Father: {fileID: 1642920775685110297}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -438,7 +501,7 @@ MonoBehaviour:
   inertiaTensor: {x: 1, y: 1, z: 1}
   syncTwoRbs: 0
   rbToSync: {fileID: 0}
---- !u!114 &7493291046386512660
+--- !u!114 &253501376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -447,9 +510,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7493291046386512667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65243f8698f5bab47925978e17f31a09, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b29488dd4fd40045b6a09722315e02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverPosition: {fileID: 2774366222315845583}
+  hoverRadius: 0.1
+  hoverLayerMask:
+    serializedVersion: 2
+    m_Bits: 16311
   movementIntensity: 10
   maximumSpeed: 5
   jumpingOppositeForce: 0.9
@@ -483,11 +551,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7493291046477110429}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: -6.379, y: -0.3, z: -4.708}
+  m_LocalPosition: {x: -6.379, y: -1.25, z: -4.708}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5336198501474506523}
+  - {fileID: 127274744102150220}
   m_Father: {fileID: 1642920775685110297}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
@@ -548,6 +617,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65243f8698f5bab47925978e17f31a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverPosition: {fileID: 127274744102150220}
+  hoverRadius: 0.1
+  hoverLayerMask:
+    serializedVersion: 2
+    m_Bits: 16247
   movementIntensity: 10
   maximumSpeed: 5
   jumpingOppositeForce: 0.9

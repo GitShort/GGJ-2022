@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class GamePlayerMovement : GamePlayerMovementBase
 {
     
-    
     private float horizontalValue;
     private bool isGrounded;
     private bool button = false;
@@ -29,6 +28,8 @@ public class GamePlayerMovement : GamePlayerMovementBase
     void OnCollisionStay(){
         isGrounded = true;
     }
+    
+    
 
 
     private void OnCollisionExit(Collision other)
@@ -81,6 +82,16 @@ public class GamePlayerMovement : GamePlayerMovementBase
 
     protected override void FixedUpdate()
     {
+        
+        Array.Clear(overlappingColliders, 0, overlappingColliders.Length);
+
+        int numColliding = Physics.OverlapSphereNonAlloc(hoverPosition.position, hoverRadius, overlappingColliders, hoverLayerMask.value);
+
+        if (numColliding > 0)
+        {
+            
+        }
+
         base.FixedUpdate();
         if (isGrounded && button)
         {
@@ -95,7 +106,7 @@ public class GamePlayerMovement : GamePlayerMovementBase
             timer += Time.fixedDeltaTime;
         }
 
-        if (button && higher && timer > 1)
+        if (button && higher && timer > 0.15)
         {
             rb.AddForce(jump * jumpForce * 0.35f * Time.fixedDeltaTime, ForceMode.Impulse);
             higher = false;
