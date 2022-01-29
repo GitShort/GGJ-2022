@@ -158,4 +158,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forcePositionVector: {x: 0.01, y: 0, z: 0}
   _collider: {fileID: 7289064568816613213}
-  oneWayteleport: 0
+  oneWayTeleport: 0
+  OneColorTeleport: 1

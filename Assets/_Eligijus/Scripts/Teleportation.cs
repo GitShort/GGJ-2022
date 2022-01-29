@@ -7,19 +7,20 @@ public class Teleportation : MonoBehaviour
 {
     [SerializeField] private Vector3 forcePositionVector = new Vector3(0.01f, 0f, 0f);
     [SerializeField] private Collider _collider;
-    [SerializeField] private bool oneWayteleport = false;
+    [SerializeField] private bool oneWayTeleport = false;
+    [SerializeField] private bool OneColorTeleport = false;
     private int previosLayer;
 
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_collider != null && oneWayteleport)
+        if (_collider != null && oneWayTeleport)
         {
             previosLayer = other.gameObject.layer;
             other.gameObject.layer = 8;
         }
-        else
+        else if(!OneColorTeleport)
         {
             previosLayer = other.gameObject.layer;
             other.gameObject.layer = 16;
@@ -34,11 +35,11 @@ public class Teleportation : MonoBehaviour
             baseScriptGravity.gravityForce = baseScriptGravity.gravityForce * -1;
             baseScript.JumpOnImpulse(forcePositionVector);
             baseScript.ApplyRotation();
-            if (_collider != null && oneWayteleport)
+            if (_collider != null && oneWayTeleport)
             {
                 other.gameObject.layer = previosLayer;
             }
-            else
+            else if(!OneColorTeleport)
             {
                 other.gameObject.layer = previosLayer;
             }
