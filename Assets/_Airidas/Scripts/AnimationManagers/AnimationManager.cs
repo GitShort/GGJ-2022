@@ -14,5 +14,6 @@ public class AnimationManager : MonoBehaviour
     public void StartAnimation(string animName)
     {
         anim.SetBool(animName, true);
+        AudioManager.instance.PlaySound("Machine", this.gameObject);
     }
 }

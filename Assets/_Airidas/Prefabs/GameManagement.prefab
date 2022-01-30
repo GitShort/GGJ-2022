@@ -50,11 +50,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sounds:
   - name: ThemeMusic
-    clip: {fileID: 8300000, guid: c59154ab3daae9c4fa4d23e0d4c74150, type: 3}
+    clip: {fileID: 8300000, guid: 531bcd2a59233db4bbf393183531e53c, type: 3}
     audioMixer: {fileID: 24300002, guid: f8738eb1dba9b5743812ff8c84e8a1d8, type: 2}
     volume: 0.15
     pitch: 1
     loop: 1
+    spatialBlend: 0
+    maxSoundDistance: 1000
+    source: {fileID: 0}
+  - name: Impact
+    clip: {fileID: 8300000, guid: da35584d8f7aa6b4eb65d667920bb0d9, type: 3}
+    audioMixer: {fileID: 24300002, guid: f8738eb1dba9b5743812ff8c84e8a1d8, type: 2}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    maxSoundDistance: 1000
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 54163e24c32753341be295412328ed14, type: 3}
+    audioMixer: {fileID: 24300002, guid: f8738eb1dba9b5743812ff8c84e8a1d8, type: 2}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    maxSoundDistance: 1000
+    source: {fileID: 0}
+  - name: Machine
+    clip: {fileID: 8300000, guid: 370fd84c62b0d8c4fa3fb85bf9fd4029, type: 3}
+    audioMixer: {fileID: 24300002, guid: f8738eb1dba9b5743812ff8c84e8a1d8, type: 2}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    maxSoundDistance: 1000
+    source: {fileID: 0}
+  - name: Portal
+    clip: {fileID: 8300000, guid: 5e8c64aec365ecd449e34601f905b0b1, type: 3}
+    audioMixer: {fileID: 24300002, guid: f8738eb1dba9b5743812ff8c84e8a1d8, type: 2}
+    volume: 0.35
+    pitch: 1
+    loop: 0
     spatialBlend: 0
     maxSoundDistance: 1000
     source: {fileID: 0}
@@ -95,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1eb437a30c80f14981d018031ba09d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resolutions: []
 --- !u!1 &3003340792346950518
 GameObject:
   m_ObjectHideFlags: 0

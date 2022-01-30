@@ -69,6 +69,7 @@ public class GamePlayerMovementBase : MonoBehaviour
     {
         teleport = true;
         this.forcePositionVector = forcePositionVector;
+        AudioManager.instance.PlaySound("Portal", this.gameObject);
     }
 
     public void DisableMovement()

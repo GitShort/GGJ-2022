@@ -89,6 +89,7 @@ public class GamePlayerMovement : GamePlayerMovementBase
                 {
                     CameraShake.Shake(0.05f, 0.06f);
                     oneTimeGround = false;
+                    AudioManager.instance.PlaySound("Impact", this.gameObject);
                 }
             }
             else
@@ -104,6 +105,7 @@ public class GamePlayerMovement : GamePlayerMovementBase
                 higher = true;
                 buttonRealised = false;
                 timer = 0f;
+                AudioManager.instance.PlaySound("Jump", this.gameObject);
             }
 
             if (button && !isGrounded && !buttonRealised)
