@@ -9,6 +9,7 @@ public class GamePlayerMovementBase : MonoBehaviour
     [SerializeField] protected Transform hoverPosition;
     [SerializeField] protected Vector3 cubeSize = Vector3.one;
     [SerializeField] protected LayerMask hoverLayerMask = -1;
+    [SerializeField] protected LayerMask rayHitMask = -1;
     protected Collider[] overlappingColliders;
     public float movementIntensity;
     public float maximumSpeed = 10f;
@@ -54,9 +55,25 @@ public class GamePlayerMovementBase : MonoBehaviour
             angleToRotate.w = 1;
         }
     }
+    
+    RaycastHit hitBottom;
+    RaycastHit hitTop;
 
     protected virtual void FixedUpdate()
     {
+        
+        
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hitBottom, 0.5f))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hitBottom.distance, Color.yellow);
+        }
+        
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hitTop, 0.5f))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * hitTop.distance, Color.blue); // jei virsus hitina galima atlikti teleportavima
+        }
+        
         if (startRotate)
         {
 

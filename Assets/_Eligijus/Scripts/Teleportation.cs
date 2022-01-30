@@ -9,12 +9,16 @@ public class Teleportation : MonoBehaviour
     [SerializeField] private Collider _collider;
     [SerializeField] private bool oneWayTeleport = false;
     [SerializeField] private bool OneColorTeleport = false;
+    [SerializeField] private float offset = 0.1f;
     private int previosLayer;
-
-
+    private void Start()
+    {
+  
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (_collider != null && oneWayTeleport)
         {
             previosLayer = other.gameObject.layer;
@@ -44,6 +48,8 @@ public class Teleportation : MonoBehaviour
                 other.gameObject.layer = previosLayer;
             }
         }
+        
     }
+
     
 }
