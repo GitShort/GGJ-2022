@@ -5755,6 +5755,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 253501376, guid: 4dfd77d40adb4524085073129ac6fb34, type: 3}
+      propertyPath: hoverLayerMask.m_Bits
+      value: 139447
+      objectReference: {fileID: 0}
     - target: {fileID: 1642920775685110297, guid: 4dfd77d40adb4524085073129ac6fb34,
         type: 3}
       propertyPath: m_RootOrder
@@ -5814,6 +5818,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Players
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493291046477110422, guid: 4dfd77d40adb4524085073129ac6fb34,
+        type: 3}
+      propertyPath: hoverLayerMask.m_Bits
+      value: 135287
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dfd77d40adb4524085073129ac6fb34, type: 3}

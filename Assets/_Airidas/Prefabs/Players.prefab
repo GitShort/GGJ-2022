@@ -352,7 +352,7 @@ MonoBehaviour:
   cubeSize: {x: 0.153, y: 0.015, z: 0.153}
   hoverLayerMask:
     serializedVersion: 2
-    m_Bits: 139703
+    m_Bits: 139447
   rayHitMask:
     serializedVersion: 2
     m_Bits: 327168
@@ -481,7 +481,7 @@ MonoBehaviour:
   cubeSize: {x: 0.153, y: 0.015, z: 0.153}
   hoverLayerMask:
     serializedVersion: 2
-    m_Bits: 135543
+    m_Bits: 135287
   rayHitMask:
     serializedVersion: 2
     m_Bits: 327168
