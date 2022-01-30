@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] Sound[] Sounds;
@@ -23,11 +23,17 @@ public class AudioManager : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
     }
+    
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
     void Update()
     {
         if (index < audioList.Count)
         {
+            
             AudioSource audioRef = audioList[index];
             if (!audioRef.isPlaying)
             {
@@ -41,6 +47,27 @@ public class AudioManager : MonoBehaviour
             index = 0;
         }
     }
+    
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        for (int i = audioList.Count-1; i > 0; i--)
+        {
+            if (audioList[i] == null)
+            {
+                audioList.Remove(audioList[i]);
+            }
+        }
+
+        if (index >= audioList.Count && audioList.Count > 0)
+        {
+            index = audioList.Count - 1;
+        }
+        else if (index >= audioList.Count && audioList.Count == 0)
+        {
+            index = 0;
+        }
+    }
+
 
     public void PlaySound(string name, GameObject go)
     {
