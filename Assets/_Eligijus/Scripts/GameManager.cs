@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -11,8 +12,11 @@ public class GameManager : MonoBehaviour
     private bool secondCheck = false;
     private float lastWidth;
     private float lastHeight;
+    public Vector2[] resolutions;
+    private Keyboard _keyboard;
     void OnEnable()
     {
+        _keyboard = Keyboard.current;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     
@@ -22,7 +26,12 @@ public class GameManager : MonoBehaviour
         Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
         instance = this;
     }
-    
+
+    public void SetResolution(int index)
+    {
+        Screen.SetResolution((int)resolutions[index].y, (int)resolutions[index].y, FullScreenMode.FullScreenWindow);
+    }
+
 
     public void FirstFinish()
     {
@@ -63,5 +72,9 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         
+        if (_keyboard.rKey.wasPressedThisFrame && SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != SceneManager.sceneCountInBuildSettings-1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+        }
     }
 }
