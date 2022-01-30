@@ -73,53 +73,56 @@ public class GamePlayerMovement : GamePlayerMovementBase
 
     protected override void FixedUpdate()
     {
-        
-        Array.Clear(overlappingColliders, 0, overlappingColliders.Length);
+        if (movementEnabled)
+        {
+            Array.Clear(overlappingColliders, 0, overlappingColliders.Length);
 
-        int numColliding = Physics.OverlapBoxNonAlloc(hoverPosition.transform.position, cubeSize, overlappingColliders,
-            gameObject.transform.rotation, hoverLayerMask, QueryTriggerInteraction.Ignore);
+            int numColliding = Physics.OverlapBoxNonAlloc(hoverPosition.transform.position, cubeSize,
+                overlappingColliders,
+                gameObject.transform.rotation, hoverLayerMask, QueryTriggerInteraction.Ignore);
 
-        if (numColliding > 0)
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
-        
-        base.FixedUpdate();
-        if (isGrounded && button)
-        {
-            rb.AddForce(jump * jumpForce * Time.fixedDeltaTime, ForceMode.Impulse);
-            higher = true;
-            buttonRealised = false;
-            timer = 0f;
-        }
-
-        if (button && !isGrounded && !buttonRealised)
-        {
-            timer += Time.fixedDeltaTime;
-        }
-
-        if (button && higher && timer > 0.15)
-        {
-            rb.AddForce(jump * jumpForce * 0.35f * Time.fixedDeltaTime, ForceMode.Impulse);
-            higher = false;
-        }
-
-        rb.AddForce(Vector3.right * movementIntensity * horizontalValue);
-        
-        if (!isGrounded)
-        {
-            rb.AddForce(Vector3.left * movementIntensity * jumpingOppositeForce * horizontalValue);
-        }
-
-        if (isGrounded)
-        {
-            if (rb.velocity.magnitude > maximumSpeed)
+            if (numColliding > 0)
             {
-                rb.velocity = rb.velocity.normalized * maximumSpeed;
+                isGrounded = true;
+            }
+            else
+            {
+                isGrounded = false;
+            }
+
+            base.FixedUpdate();
+            if (isGrounded && button)
+            {
+                rb.AddForce(jump * jumpForce * Time.fixedDeltaTime, ForceMode.Impulse);
+                higher = true;
+                buttonRealised = false;
+                timer = 0f;
+            }
+
+            if (button && !isGrounded && !buttonRealised)
+            {
+                timer += Time.fixedDeltaTime;
+            }
+
+            if (button && higher && timer > 0.15)
+            {
+                rb.AddForce(jump * jumpForce * 0.35f * Time.fixedDeltaTime, ForceMode.Impulse);
+                higher = false;
+            }
+
+            rb.AddForce(Vector3.right * movementIntensity * horizontalValue);
+
+            if (!isGrounded)
+            {
+                rb.AddForce(Vector3.left * movementIntensity * jumpingOppositeForce * horizontalValue);
+            }
+
+            if (isGrounded)
+            {
+                if (rb.velocity.magnitude > maximumSpeed)
+                {
+                    rb.velocity = rb.velocity.normalized * maximumSpeed;
+                }
             }
         }
     }

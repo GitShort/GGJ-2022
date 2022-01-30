@@ -25,6 +25,7 @@ public class GamePlayerMovementBase : MonoBehaviour
     
     private Quaternion angleToRotate;
     private bool startRotate = false;
+    protected bool movementEnabled = true;
 
     
     // Start is called before the first frame update
@@ -68,6 +69,11 @@ public class GamePlayerMovementBase : MonoBehaviour
     {
         teleport = true;
         this.forcePositionVector = forcePositionVector;
+    }
+
+    public void DisableMovement()
+    {
+        movementEnabled = false;
     }
 
     RaycastHit hitBottom;
