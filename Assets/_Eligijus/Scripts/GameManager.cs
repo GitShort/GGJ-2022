@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -12,8 +13,10 @@ public class GameManager : MonoBehaviour
     private float lastWidth;
     private float lastHeight;
     public Vector2[] resolutions;
+    private Keyboard _keyboard;
     void OnEnable()
     {
+        _keyboard = Keyboard.current;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     
@@ -69,5 +72,9 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         
+        if (_keyboard.rKey.wasPressedThisFrame && SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != SceneManager.sceneCountInBuildSettings-1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+        }
     }
 }
