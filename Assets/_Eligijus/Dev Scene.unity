@@ -643,6 +643,7 @@ GameObject:
   - component: {fileID: 2064868592}
   - component: {fileID: 2064868591}
   - component: {fileID: 2064868594}
+  - component: {fileID: 2064868595}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -840,6 +841,18 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &2064868595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064868590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21174a57a4dfd3448dce22072a04769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2138918029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,6 +1307,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Players
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493291046386512661, guid: 4dfd77d40adb4524085073129ac6fb34,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493291046477110423, guid: 4dfd77d40adb4524085073129ac6fb34,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.99
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dfd77d40adb4524085073129ac6fb34, type: 3}
