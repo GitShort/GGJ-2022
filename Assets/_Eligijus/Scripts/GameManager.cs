@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private bool secondCheck = false;
     private float lastWidth;
     private float lastHeight;
+    public Vector2[] resolutions;
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -22,7 +23,12 @@ public class GameManager : MonoBehaviour
         Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
         instance = this;
     }
-    
+
+    public void SetResolution(int index)
+    {
+        Screen.SetResolution((int)resolutions[index].y, (int)resolutions[index].y, FullScreenMode.FullScreenWindow);
+    }
+
 
     public void FirstFinish()
     {
