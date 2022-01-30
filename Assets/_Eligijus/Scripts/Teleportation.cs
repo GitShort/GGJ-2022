@@ -35,10 +35,11 @@ public class Teleportation : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out GamePlayerMovementBase baseScript) && other.gameObject.TryGetComponent(out Gravity baseScriptGravity))
         {
-            baseScript.jump = baseScript.jump * -1;
-            baseScriptGravity.gravityForce = baseScriptGravity.gravityForce * -1;
-            baseScript.JumpOnImpulse(forcePositionVector);
-            baseScript.ApplyRotation();
+            // baseScript.jump = baseScript.jump * -1;
+            // baseScriptGravity.gravityForce = baseScriptGravity.gravityForce * -1;
+            // baseScript.JumpOnImpulse(forcePositionVector);
+            // baseScript.ApplyRotation();
+            baseScript.StartTeleportation(forcePositionVector);
             if (_collider != null && oneWayTeleport)
             {
                 other.gameObject.layer = previosLayer;

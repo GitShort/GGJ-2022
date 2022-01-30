@@ -18,16 +18,21 @@ public class GamePlayerMovementBase : MonoBehaviour
     public float jumpForce = 2.0f;
     protected Rigidbody rb;
     private float playerHeight;
+    private Gravity _gravity;
+    private bool teleport = false;
+    private Vector3 forcePositionVector;
     
     private Quaternion angleToRotate;
     private bool startRotate = false;
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        _gravity = gameObject.GetComponent<Gravity>();
         playerHeight = gameObject.GetComponent<BoxCollider>().size.y;
         overlappingColliders = new Collider[32];
         rb = gameObject.GetComponent<Rigidbody>();
         // rb.centerOfMass = Vector3.zero;
+        
         angleToRotate = transform.rotation;
     }
 
@@ -55,9 +60,16 @@ public class GamePlayerMovementBase : MonoBehaviour
             angleToRotate.w = 1;
         }
     }
-    
+
+    public void StartTeleportation(Vector3 forcePositionVector)
+    {
+        teleport = true;
+        this.forcePositionVector = forcePositionVector;
+    }
+
     RaycastHit hitBottom;
     RaycastHit hitTop;
+    
 
     protected virtual void FixedUpdate()
     {
@@ -71,6 +83,15 @@ public class GamePlayerMovementBase : MonoBehaviour
         
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hitTop, 0.5f))
         {
+            if (teleport)
+            {
+                jump = jump * -1;
+                _gravity.gravityForce = _gravity.gravityForce * -1;
+                JumpOnImpulse(forcePositionVector);
+                ApplyRotation();
+                teleport = false;
+            }
+
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * hitTop.distance, Color.blue); // jei virsus hitina galima atlikti teleportavima
         }
         

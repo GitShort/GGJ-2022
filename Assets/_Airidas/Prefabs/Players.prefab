@@ -355,13 +355,12 @@ MonoBehaviour:
     m_Bits: 139703
   rayHitMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 327168
   movementIntensity: 10
   maximumSpeed: 5
   jumpingOppositeForce: 0.9
   jump: {x: 0, y: 1, z: 0}
   jumpForce: 200
-  anim: {fileID: 5242477690214465437}
 --- !u!95 &5242477690214465437
 Animator:
   serializedVersion: 4
@@ -484,13 +483,12 @@ MonoBehaviour:
     m_Bits: 135543
   rayHitMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 327168
   movementIntensity: 10
   maximumSpeed: 5
   jumpingOppositeForce: 0.9
   jump: {x: 0, y: -1, z: 0}
   jumpForce: 200
-  anim: {fileID: 7448502252357630238}
 --- !u!95 &7448502252357630238
 Animator:
   serializedVersion: 4

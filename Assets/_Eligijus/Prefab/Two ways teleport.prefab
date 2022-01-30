@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8831430765684720991}
   - component: {fileID: 8831430765684720988}
   - component: {fileID: 8831430765684720960}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Two ways teleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,4 +112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forcePositionVector: {x: 0.01, y: 0, z: 0}
   _collider: {fileID: 0}
-  oneWayteleport: 0
+  oneWayTeleport: 0
+  OneColorTeleport: 0
+  offset: 0.1
