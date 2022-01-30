@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,8 @@ public class GameManager : MonoBehaviour
 
     private bool firstCheck = false;
     private bool secondCheck = false;
-    
+    private float lastWidth;
+    private float lastHeight;
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
         instance = this;
     }
     
@@ -55,5 +58,10 @@ public class GameManager : MonoBehaviour
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+    }
+
+    private void Update()
+    {
+        
     }
 }
