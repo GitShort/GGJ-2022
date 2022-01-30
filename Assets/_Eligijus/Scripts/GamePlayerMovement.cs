@@ -8,6 +8,7 @@ public class GamePlayerMovement : GamePlayerMovementBase
     
     private float horizontalValue;
     private bool isGrounded;
+    private bool oneTimeGround = false;
     private bool button = false;
     private bool higher = false;
     private bool buttonRealised = false;
@@ -84,10 +85,16 @@ public class GamePlayerMovement : GamePlayerMovementBase
             if (numColliding > 0)
             {
                 isGrounded = true;
+                if (oneTimeGround)
+                {
+                    CameraShake.Shake(0.05f, 0.06f);
+                    oneTimeGround = false;
+                }
             }
             else
             {
                 isGrounded = false;
+                oneTimeGround = true;
             }
 
             base.FixedUpdate();
