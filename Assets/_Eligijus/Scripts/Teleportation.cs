@@ -10,10 +10,12 @@ public class Teleportation : MonoBehaviour
     [SerializeField] private bool oneWayTeleport = false;
     [SerializeField] private bool OneColorTeleport = false;
     [SerializeField] private float offset = 0.1f;
-    private int previosLayer;
+    private Collider[] _colliders;
+    private int[] layers;
     private void Start()
     {
-  
+        _colliders = new Collider[2];
+        layers = new int[2];
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,12 +23,34 @@ public class Teleportation : MonoBehaviour
 
         if (_collider != null && oneWayTeleport)
         {
-            previosLayer = other.gameObject.layer;
+            if (_colliders[0] == null)
+            {
+                _colliders[0] = other;
+                layers[0] = other.gameObject.layer;
+                
+            }
+            else if (_colliders[0] != null && _colliders[0] != other && _colliders[1] == null)
+            {
+                _colliders[1] = other;
+                layers[1] = other.gameObject.layer;
+            }
+            
             other.gameObject.layer = 8;
         }
         else if(!OneColorTeleport)
         {
-            previosLayer = other.gameObject.layer;
+            if (_colliders[0] == null)
+            {
+                _colliders[0] = other;
+                layers[0] = other.gameObject.layer;
+                
+            }
+            else if (_colliders[0] != null && _colliders[0] != other && _colliders[1] == null)
+            {
+                _colliders[1] = other;
+                layers[1] = other.gameObject.layer;
+            }
+            
             other.gameObject.layer = 16;
         }
     }
@@ -42,11 +66,31 @@ public class Teleportation : MonoBehaviour
             baseScript.StartTeleportation(forcePositionVector);
             if (_collider != null && oneWayTeleport)
             {
-                other.gameObject.layer = previosLayer;
+                if (_colliders[0] != null && _colliders[0] == other)
+                {
+                    other.gameObject.layer = layers[0];
+                    _colliders[0] = null;
+                }
+                else if (_colliders[1] != null && _colliders[1] == other)
+                {
+                    other.gameObject.layer = layers[1];
+                    _colliders[1] = null;
+                }
+
+                
             }
             else if(!OneColorTeleport)
             {
-                other.gameObject.layer = previosLayer;
+                if (_colliders[0] != null && _colliders[0] == other)
+                {
+                    other.gameObject.layer = layers[0];
+                    _colliders[0] = null;
+                }
+                else if (_colliders[1] != null && _colliders[1] == other)
+                {
+                    other.gameObject.layer = layers[1];
+                    _colliders[1] = null;
+                }
             }
         }
         
