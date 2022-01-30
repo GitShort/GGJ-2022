@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CameraShake : MonoBehaviour
 {
@@ -16,6 +18,11 @@ public class CameraShake : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        instance._originalPos = instance.gameObject.transform.localPosition;
+    }
+
     void Update() {
         // Calculate a fake delta time, so we can Shake while game is paused.
         _timeAtCurrentFrame = Time.realtimeSinceStartup;
@@ -24,14 +31,13 @@ public class CameraShake : MonoBehaviour
     }
 
     public static void Shake (float duration, float amount) {
-        instance._originalPos = instance.gameObject.transform.localPosition;
+        
         instance.StopAllCoroutines();
         instance.StartCoroutine(instance.cShake(duration, amount));
     }
 
     public void ScreenShakeDefault()
     {
-        instance._originalPos = instance.gameObject.transform.localPosition;
         instance.StopAllCoroutines();
         instance.StartCoroutine(instance.cShake(0.05f, 0.06f));
     }
