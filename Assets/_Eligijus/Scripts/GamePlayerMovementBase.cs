@@ -16,6 +16,7 @@ public class GamePlayerMovementBase : MonoBehaviour
     public float jumpingOppositeForce = 0.6f;
     public Vector3 jump;
     public float jumpForce = 2.0f;
+    [SerializeField] private Animator _animator;
     protected Rigidbody rb;
     private float playerHeight;
     private Gravity _gravity;
@@ -24,6 +25,8 @@ public class GamePlayerMovementBase : MonoBehaviour
     
     private Quaternion angleToRotate;
     private bool startRotate = false;
+
+    
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -73,8 +76,18 @@ public class GamePlayerMovementBase : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        
-        
+        if (_animator != null)
+        {
+            if (rb.velocity.magnitude >= 0.01f)
+            {
+                _animator.SetBool("isWalking", true);
+            }
+            else
+            {
+                _animator.SetBool("isWalking", false);
+            }
+        }
+
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hitBottom, 0.5f))
         {
